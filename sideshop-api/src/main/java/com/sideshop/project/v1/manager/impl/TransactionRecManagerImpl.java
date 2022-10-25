@@ -15,36 +15,36 @@ import com.sideshop.project.v1.manager.TransactionRecManager;
 @Service
 public class TransactionRecManagerImpl implements TransactionRecManager {
 
-    @Autowired
-    TransactionDao transactionDao;
+	@Autowired
+	TransactionDao transactionDao;
 
-    @Override
-    public List<TransactionRec> getAllTransactions() {
-	Iterable<TransactionRec> transactions = transactionDao.findAll();
-	List<TransactionRec> transactionsList = new ArrayList<>();
-	transactions.forEach(transactionsList::add);
-	return transactionsList;
-    }
+	@Override
+	public List<TransactionRec> getAllTransactions() {
+		Iterable<TransactionRec> transactions = transactionDao.findAll();
+		List<TransactionRec> transactionsList = new ArrayList<>();
+		transactions.forEach(transactionsList::add);
+		return transactionsList;
+	}
 
-    @Override
-    public TransactionRec createTransaction(TransactionRec transaction) {
-	return transactionDao.save(transaction);
-    }
+	@Override
+	public TransactionRec createTransaction(TransactionRec transaction) {
+		return transactionDao.save(transaction);
+	}
 
-    @Override
-    public TransactionRec replaceTransaction(TransactionRec transaction, String transactionId) {
-	transaction.setTransactionId(transactionId);
-	return transactionDao.save(transaction);
-    }
+	@Override
+	public TransactionRec replaceTransaction(TransactionRec transaction, String transactionId) {
+		transaction.setTransactionId(transactionId);
+		return transactionDao.save(transaction);
+	}
 
-    @Override
-    public TransactionRec getTransaction(String transactionId) {
-	return transactionDao.findById(transactionId).get();
-    }
+	@Override
+	public TransactionRec getTransaction(String transactionId) {
+		return transactionDao.findById(transactionId).get();
+	}
 
-    @Override
-    public JsonNode deleteTransaction(String transactionId) {
-	transactionDao.deleteById(transactionId);
-	return SideshopConstants.OBJECTMAPPER.createObjectNode();
-    }
+	@Override
+	public JsonNode deleteTransaction(String transactionId) {
+		transactionDao.deleteById(transactionId);
+		return SideshopConstants.OBJECTMAPPER.createObjectNode();
+	}
 }

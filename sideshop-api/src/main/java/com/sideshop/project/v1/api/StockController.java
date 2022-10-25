@@ -18,33 +18,33 @@ import com.sideshop.project.v1.manager.StockManager;
 @RequestMapping(value = "/stock")
 public class StockController {
 
-    @Autowired
-    StockManager stockManager;
+	@Autowired
+	StockManager stockManager;
 
-    @RequestMapping(value = "/stocks", produces = { "application/json" })
-    public List<Stock> getStocks() {
-	return stockManager.getAllStocks();
-    }
+	@RequestMapping(value = "/stocks", produces = { "application/json" })
+	public List<Stock> getStocks() {
+		return stockManager.getAllStocks();
+	}
 
-    @RequestMapping(method = RequestMethod.POST, value = "/stock", produces = { "application/json" }, consumes = {
-	    "application/json" })
-    public Stock createStock(@RequestBody Stock stock) {
-	return stockManager.createStock(stock);
-    }
+	@RequestMapping(method = RequestMethod.POST, value = "/stock", produces = { "application/json" }, consumes = {
+			"application/json" })
+	public Stock createStock(@RequestBody Stock stock) {
+		return stockManager.createStock(stock);
+	}
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/stock/{stockId}", produces = {
-	    "application/json" }, consumes = { "application/json" })
-    public Stock updateStock(@RequestBody Stock stock, @PathParam("stockId") String stockId) {
-	return stockManager.replaceStock(stock, stockId);
-    }
+	@RequestMapping(method = RequestMethod.PUT, value = "/stock/{stockId}", produces = {
+			"application/json" }, consumes = { "application/json" })
+	public Stock updateStock(@RequestBody Stock stock, @PathParam("stockId") String stockId) {
+		return stockManager.replaceStock(stock, stockId);
+	}
 
-    @RequestMapping(value = "/stock/{stockId}", produces = { "application/json" })
-    public Stock getStock(@PathParam("stockId") String stockId) {
-	return stockManager.getStock(stockId);
-    }
+	@RequestMapping(value = "/stock/{stockId}", produces = { "application/json" })
+	public Stock getStock(@PathParam("stockId") String stockId) {
+		return stockManager.getStock(stockId);
+	}
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/stock/{stockId}", produces = { "application/json" })
-    public JsonNode deleteStock(@PathParam("stockId") String stockId) {
-	return stockManager.deleteStock(stockId);
-    }
+	@RequestMapping(method = RequestMethod.DELETE, value = "/stock/{stockId}", produces = { "application/json" })
+	public JsonNode deleteStock(@PathParam("stockId") String stockId) {
+		return stockManager.deleteStock(stockId);
+	}
 }

@@ -15,36 +15,36 @@ import com.sideshop.project.v1.manager.StockManager;
 @Service
 public class StockManagerImpl implements StockManager {
 
-    @Autowired
-    StockDao stockDao;
+	@Autowired
+	StockDao stockDao;
 
-    @Override
-    public List<Stock> getAllStocks() {
-	Iterable<Stock> stocks = stockDao.findAll();
-	List<Stock> stocksList = new ArrayList<>();
-	stocks.forEach(stocksList::add);
-	return stocksList;
-    }
+	@Override
+	public List<Stock> getAllStocks() {
+		Iterable<Stock> stocks = stockDao.findAll();
+		List<Stock> stocksList = new ArrayList<>();
+		stocks.forEach(stocksList::add);
+		return stocksList;
+	}
 
-    @Override
-    public Stock createStock(Stock stock) {
-	return stockDao.save(stock);
-    }
+	@Override
+	public Stock createStock(Stock stock) {
+		return stockDao.save(stock);
+	}
 
-    @Override
-    public Stock replaceStock(Stock stock, String stockId) {
-	stock.setStockId(stockId);
-	return stockDao.save(stock);
-    }
+	@Override
+	public Stock replaceStock(Stock stock, String stockId) {
+		stock.setStockId(stockId);
+		return stockDao.save(stock);
+	}
 
-    @Override
-    public Stock getStock(String stockId) {
-	return stockDao.findById(stockId).get();
-    }
+	@Override
+	public Stock getStock(String stockId) {
+		return stockDao.findById(stockId).get();
+	}
 
-    @Override
-    public JsonNode deleteStock(String stockId) {
-	stockDao.deleteById(stockId);
-	return SideshopConstants.OBJECTMAPPER.createObjectNode();
-    }
+	@Override
+	public JsonNode deleteStock(String stockId) {
+		stockDao.deleteById(stockId);
+		return SideshopConstants.OBJECTMAPPER.createObjectNode();
+	}
 }

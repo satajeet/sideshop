@@ -14,32 +14,32 @@ import com.sideshop.project.v1.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    UserManager userManager;
+	@Autowired
+	UserManager userManager;
 
-    @Override
-    public List<UserRec> getAllUsers() {
-	return userManager.getAllUsers();
-    }
+	@Override
+	public List<UserRec> getAllUsers() {
+		return userManager.getAllUsers();
+	}
 
-    @Override
-    public UserRec createUser(UserRec user) {
-	return userManager.createUser(user);
-    }
+	@Override
+	public UserRec createUser(UserRec user) {
+		return userManager.createUser(user);
+	}
 
-    @Override
-    public UserRec replaceUser(UserRec user, String userId) {
-	return userManager.replaceUser(user, userId);
-    }
+	@Override
+	public UserRec replaceUser(UserRec user, String userId) {
+		return userManager.replaceUser(user, userId);
+	}
 
-    @Override
-    public UserRec getUser(String userId) {
-	return userManager.getUser(userId);
-    }
+	@Override
+	public UserRec getUser(String userId) {
+		return userManager.getUser(userId);
+	}
 
-    @Override
-    public JsonNode deleteUser(String userId) {
-	userManager.deleteUser(userId);
-	return SideshopConstants.OBJECTMAPPER.createObjectNode();
-    }
+	@Override
+	public JsonNode deleteUser(String userId) {
+		userManager.deleteUser(userId);
+		return SideshopConstants.OBJECTMAPPER.createObjectNode();
+	}
 }

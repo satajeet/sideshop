@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class SideshopExceptionController {
 
-    @ExceptionHandler(value = SideshopNotfoundException.class)
-    public ResponseEntity<Object> exception(SideshopNotfoundException sideshopNotfoundException) {
-	return new ResponseEntity<>("Sideshop not found", HttpStatus.NOT_FOUND);
-    }
+	@ExceptionHandler(value = SideshopNotfoundException.class)
+	public ResponseEntity<Object> exception(SideshopNotfoundException sideshopNotfoundException) {
+		return new ResponseEntity<>("Sideshop not found", HttpStatus.NOT_FOUND);
+	}
 }

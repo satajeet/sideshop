@@ -16,41 +16,41 @@ import com.sideshop.project.v1.service.ShopService;
 @Transactional
 public class ShopServiceImpl implements ShopService {
 
-    @Autowired
-    ShopManager shopManager;
+	@Autowired
+	ShopManager shopManager;
 
-    @Override
-    public List<Shop> getAllShops() {
-	return shopManager.getAllShops();
-    }
+	@Override
+	public List<Shop> getAllShops() {
+		return shopManager.getAllShops();
+	}
 
-    @Override
-    public Shop createShop(Shop shop) {
-	return shopManager.createShop(shop);
-    }
+	@Override
+	public Shop createShop(Shop shop) {
+		return shopManager.createShop(shop);
+	}
 
-    @Override
-    public Shop replaceShop(Shop shop, String shopId) {
-	shop.setShopId(shopId);
-	return shopManager.replaceShop(shop, shopId);
-    }
+	@Override
+	public Shop replaceShop(Shop shop, String shopId) {
+		shop.setShopId(shopId);
+		return shopManager.replaceShop(shop, shopId);
+	}
 
-    @Override
-    public Shop getShop(String shopId) {
-	return shopManager.getShop(shopId);
-    }
+	@Override
+	public Shop getShop(String shopId) {
+		return shopManager.getShop(shopId);
+	}
 
-    @Override
-    public JsonNode deleteShop(String shopId) {
-	shopManager.deleteShop(shopId);
-	return SideshopConstants.OBJECTMAPPER.createObjectNode();
-    }
+	@Override
+	public JsonNode deleteShop(String shopId) {
+		shopManager.deleteShop(shopId);
+		return SideshopConstants.OBJECTMAPPER.createObjectNode();
+	}
 
-    @Override
-    @Transactional
-    public Shop createShopException(Shop shop) {
-	Shop shop2 = shopManager.createShopException(shop);
-	return shop2;
-    }
+	@Override
+	@Transactional
+	public Shop createShopException(Shop shop) {
+		Shop shop2 = shopManager.createShopException(shop);
+		return shop2;
+	}
 
 }

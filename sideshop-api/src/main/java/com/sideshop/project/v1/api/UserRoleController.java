@@ -18,33 +18,33 @@ import com.sideshop.project.v1.manager.UserRoleManager;
 @RequestMapping(value = "/UserRoleController")
 public class UserRoleController {
 
-    @Autowired
-    UserRoleManager userRoleManager;
+	@Autowired
+	UserRoleManager userRoleManager;
 
-    @RequestMapping(value = "/userroles", produces = { "application/json" })
-    public List<UserRole> getUserRoles() {
-	return userRoleManager.getAllUserRoles();
-    }
+	@RequestMapping(value = "/userroles", produces = { "application/json" })
+	public List<UserRole> getUserRoles() {
+		return userRoleManager.getAllUserRoles();
+	}
 
-    @RequestMapping(method = RequestMethod.POST, value = "/userrole", produces = { "application/json" }, consumes = {
-	    "application/json" })
-    public UserRole createUserRole(@RequestBody UserRole userRole) {
-	return userRoleManager.createUserRole(userRole);
-    }
+	@RequestMapping(method = RequestMethod.POST, value = "/userrole", produces = { "application/json" }, consumes = {
+			"application/json" })
+	public UserRole createUserRole(@RequestBody UserRole userRole) {
+		return userRoleManager.createUserRole(userRole);
+	}
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/userrole/{userRoleId}", produces = {
-	    "application/json" }, consumes = { "application/json" })
-    public UserRole updateUserRole(@RequestBody UserRole userRole, @PathParam("userRoleId") String userRoleId) {
-	return userRoleManager.replaceUserRole(userRole, userRoleId);
-    }
+	@RequestMapping(method = RequestMethod.PUT, value = "/userrole/{userRoleId}", produces = {
+			"application/json" }, consumes = { "application/json" })
+	public UserRole updateUserRole(@RequestBody UserRole userRole, @PathParam("userRoleId") String userRoleId) {
+		return userRoleManager.replaceUserRole(userRole, userRoleId);
+	}
 
-    @RequestMapping(value = "/userrole/{userRoleId}", produces = { "application/json" })
-    public UserRole getUserRole(@PathParam("userRoleId") String userRoleId) {
-	return userRoleManager.getUserRole(userRoleId);
-    }
+	@RequestMapping(value = "/userrole/{userRoleId}", produces = { "application/json" })
+	public UserRole getUserRole(@PathParam("userRoleId") String userRoleId) {
+		return userRoleManager.getUserRole(userRoleId);
+	}
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/userrole/{userRoleId}", produces = { "application/json" })
-    public JsonNode deleteUserRole(@PathParam("userRoleId") String userRoleId) {
-	return userRoleManager.deleteUserRole(userRoleId);
-    }
+	@RequestMapping(method = RequestMethod.DELETE, value = "/userrole/{userRoleId}", produces = { "application/json" })
+	public JsonNode deleteUserRole(@PathParam("userRoleId") String userRoleId) {
+		return userRoleManager.deleteUserRole(userRoleId);
+	}
 }

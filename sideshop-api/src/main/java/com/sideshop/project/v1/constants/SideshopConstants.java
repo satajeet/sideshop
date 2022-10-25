@@ -4,5 +4,5 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class SideshopConstants {
 
-    public static final ObjectMapper OBJECTMAPPER = new ObjectMapper();
+	public static final ObjectMapper OBJECTMAPPER = new ObjectMapper();
 }

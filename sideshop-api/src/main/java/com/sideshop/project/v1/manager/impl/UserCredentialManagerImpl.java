@@ -15,42 +15,42 @@ import com.sideshop.project.v1.manager.UserCredentialManager;
 @Service
 public class UserCredentialManagerImpl implements UserCredentialManager {
 
-    @Autowired
-    UserCredentialDao userCredentialDao;
+	@Autowired
+	UserCredentialDao userCredentialDao;
 
-    @Override
-    public List<UserCredential> getAllUserCredentials() {
-	Iterable<UserCredential> userCredentials = userCredentialDao.findAll();
-	List<UserCredential> userCredentialsList = new ArrayList<>();
-	userCredentials.forEach(userCredentialsList::add);
-	return userCredentialsList;
-    }
+	@Override
+	public List<UserCredential> getAllUserCredentials() {
+		Iterable<UserCredential> userCredentials = userCredentialDao.findAll();
+		List<UserCredential> userCredentialsList = new ArrayList<>();
+		userCredentials.forEach(userCredentialsList::add);
+		return userCredentialsList;
+	}
 
-    @Override
-    public UserCredential createUserCredential(UserCredential userCredential) {
-	return userCredentialDao.save(userCredential);
-    }
+	@Override
+	public UserCredential createUserCredential(UserCredential userCredential) {
+		return userCredentialDao.save(userCredential);
+	}
 
-    @Override
-    public UserCredential replaceUserCredential(UserCredential userCredential, String userCredentialId) {
-	userCredential.setUserCredentialId(userCredentialId);
-	return userCredentialDao.save(userCredential);
-    }
+	@Override
+	public UserCredential replaceUserCredential(UserCredential userCredential, String userCredentialId) {
+		userCredential.setUserCredentialId(userCredentialId);
+		return userCredentialDao.save(userCredential);
+	}
 
-    @Override
-    public UserCredential getUserCredential(String userCredentialId) {
-	return userCredentialDao.findById(userCredentialId).get();
-    }
+	@Override
+	public UserCredential getUserCredential(String userCredentialId) {
+		return userCredentialDao.findById(userCredentialId).get();
+	}
 
-    @Override
-    public JsonNode deleteUserCredential(String userCredentialId) {
-	userCredentialDao.deleteById(userCredentialId);
-	return SideshopConstants.OBJECTMAPPER.createObjectNode();
-    }
+	@Override
+	public JsonNode deleteUserCredential(String userCredentialId) {
+		userCredentialDao.deleteById(userCredentialId);
+		return SideshopConstants.OBJECTMAPPER.createObjectNode();
+	}
 
-    @Override
-    public String checkUserCredential(UserCredential userCredential) {
-	// TODO Auto-generated method stub
-	return null;
-    }
+	@Override
+	public String checkUserCredential(UserCredential userCredential) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

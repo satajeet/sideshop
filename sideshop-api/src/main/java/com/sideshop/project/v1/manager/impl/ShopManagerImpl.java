@@ -18,44 +18,44 @@ import com.sideshop.project.v1.manager.ShopManager;
 @Transactional
 public class ShopManagerImpl implements ShopManager {
 
-    @Autowired
-    ShopDao shopDao;
+	@Autowired
+	ShopDao shopDao;
 
-    @Override
-    public List<Shop> getAllShops() {
-	Iterable<Shop> shops = shopDao.findAll();
-	List<Shop> shopsList = new ArrayList<>();
-	shops.forEach(shopsList::add);
-	return shopsList;
-    }
+	@Override
+	public List<Shop> getAllShops() {
+		Iterable<Shop> shops = shopDao.findAll();
+		List<Shop> shopsList = new ArrayList<>();
+		shops.forEach(shopsList::add);
+		return shopsList;
+	}
 
-    @Override
-    public Shop createShop(Shop shop) {
-	return shopDao.save(shop);
-    }
+	@Override
+	public Shop createShop(Shop shop) {
+		return shopDao.save(shop);
+	}
 
-    @Override
-    public Shop replaceShop(Shop shop, String shopId) {
-	shop.setShopId(shopId);
-	return shopDao.save(shop);
-    }
+	@Override
+	public Shop replaceShop(Shop shop, String shopId) {
+		shop.setShopId(shopId);
+		return shopDao.save(shop);
+	}
 
-    @Override
-    public Shop getShop(String shopId) {
-	return shopDao.findById(shopId).get();
-    }
+	@Override
+	public Shop getShop(String shopId) {
+		return shopDao.findById(shopId).get();
+	}
 
-    @Override
-    public JsonNode deleteShop(String shopId) {
-	shopDao.deleteById(shopId);
-	return SideshopConstants.OBJECTMAPPER.createObjectNode();
-    }
+	@Override
+	public JsonNode deleteShop(String shopId) {
+		shopDao.deleteById(shopId);
+		return SideshopConstants.OBJECTMAPPER.createObjectNode();
+	}
 
-    @Override
-    @Transactional
-    public Shop createShopException(Shop shop) {
-	shopDao.save(shop);
-	throw new SideshopNotfoundException();
-    }
+	@Override
+	@Transactional
+	public Shop createShopException(Shop shop) {
+		shopDao.save(shop);
+		throw new SideshopNotfoundException();
+	}
 
 }

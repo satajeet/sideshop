@@ -18,40 +18,40 @@ import com.sideshop.project.v1.manager.UserCredentialManager;
 @RequestMapping(value = "/UserCredentialController")
 public class UserCredentialController {
 
-    @Autowired
-    UserCredentialManager userCredentialManager;
+	@Autowired
+	UserCredentialManager userCredentialManager;
 
-    @RequestMapping(value = "/usercredentials", produces = { "application/json" })
-    public List<UserCredential> getUsers() {
-	return userCredentialManager.getAllUserCredentials();
-    }
+	@RequestMapping(value = "/usercredentials", produces = { "application/json" })
+	public List<UserCredential> getUsers() {
+		return userCredentialManager.getAllUserCredentials();
+	}
 
-    @RequestMapping(method = RequestMethod.POST, value = "/usercredentials", produces = {
-	    "application/json" }, consumes = { "application/json" })
-    public UserCredential createUserCredential(@RequestBody UserCredential userCredential) {
-	return userCredentialManager.createUserCredential(userCredential);
-    }
+	@RequestMapping(method = RequestMethod.POST, value = "/usercredentials", produces = {
+			"application/json" }, consumes = { "application/json" })
+	public UserCredential createUserCredential(@RequestBody UserCredential userCredential) {
+		return userCredentialManager.createUserCredential(userCredential);
+	}
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/usercredentials/{userCredentialId}", produces = {
-	    "application/json" }, consumes = { "application/json" })
-    public UserCredential updateUserCredential(@RequestBody UserCredential userCredential,
-	    @PathParam("userCredentialId") String userCredentialId) {
-	return userCredentialManager.replaceUserCredential(userCredential, userCredentialId);
-    }
+	@RequestMapping(method = RequestMethod.PUT, value = "/usercredentials/{userCredentialId}", produces = {
+			"application/json" }, consumes = { "application/json" })
+	public UserCredential updateUserCredential(@RequestBody UserCredential userCredential,
+			@PathParam("userCredentialId") String userCredentialId) {
+		return userCredentialManager.replaceUserCredential(userCredential, userCredentialId);
+	}
 
-    @RequestMapping(value = "/usercredentials/{userCredentialId}", produces = { "application/json" })
-    public UserCredential getUserCredential(@PathParam("userCredentialId") String userCredentialId) {
-	return userCredentialManager.getUserCredential(userCredentialId);
-    }
+	@RequestMapping(value = "/usercredentials/{userCredentialId}", produces = { "application/json" })
+	public UserCredential getUserCredential(@PathParam("userCredentialId") String userCredentialId) {
+		return userCredentialManager.getUserCredential(userCredentialId);
+	}
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/usercredentials/{userCredentialId}", produces = {
-	    "application/json" })
-    public JsonNode deleteUserCredential(@PathParam("userCredentialId") String userCredentialId) {
-	return userCredentialManager.deleteUserCredential(userCredentialId);
-    }
+	@RequestMapping(method = RequestMethod.DELETE, value = "/usercredentials/{userCredentialId}", produces = {
+			"application/json" })
+	public JsonNode deleteUserCredential(@PathParam("userCredentialId") String userCredentialId) {
+		return userCredentialManager.deleteUserCredential(userCredentialId);
+	}
 
-    @RequestMapping(value = "/checkusercredentials", produces = { "application/json" })
-    public String checkUserCredentials(UserCredential userCredential) {
-	return userCredentialManager.checkUserCredential(userCredential);
-    }
+	@RequestMapping(value = "/checkusercredentials", produces = { "application/json" })
+	public String checkUserCredentials(UserCredential userCredential) {
+		return userCredentialManager.checkUserCredential(userCredential);
+	}
 }

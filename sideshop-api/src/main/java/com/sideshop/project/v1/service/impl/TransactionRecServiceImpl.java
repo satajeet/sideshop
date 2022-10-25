@@ -14,33 +14,33 @@ import com.sideshop.project.v1.service.TransactionRecService;
 @Service
 public class TransactionRecServiceImpl implements TransactionRecService {
 
-    @Autowired
-    TransactionRecManager transactionRecManager;
+	@Autowired
+	TransactionRecManager transactionRecManager;
 
-    @Override
-    public List<TransactionRec> getAllTransactions() {
-	return transactionRecManager.getAllTransactions();
-    }
+	@Override
+	public List<TransactionRec> getAllTransactions() {
+		return transactionRecManager.getAllTransactions();
+	}
 
-    @Override
-    public TransactionRec createTransaction(TransactionRec transaction) {
-	return transactionRecManager.createTransaction(transaction);
-    }
+	@Override
+	public TransactionRec createTransaction(TransactionRec transaction) {
+		return transactionRecManager.createTransaction(transaction);
+	}
 
-    @Override
-    public TransactionRec replaceTransaction(TransactionRec transaction, String transactionId) {
-	transaction.setTransactionId(transactionId);
-	return transactionRecManager.replaceTransaction(transaction, transactionId);
-    }
+	@Override
+	public TransactionRec replaceTransaction(TransactionRec transaction, String transactionId) {
+		transaction.setTransactionId(transactionId);
+		return transactionRecManager.replaceTransaction(transaction, transactionId);
+	}
 
-    @Override
-    public TransactionRec getTransaction(String transactionId) {
-	return transactionRecManager.getTransaction(transactionId);
-    }
+	@Override
+	public TransactionRec getTransaction(String transactionId) {
+		return transactionRecManager.getTransaction(transactionId);
+	}
 
-    @Override
-    public JsonNode deleteTransaction(String transactionId) {
-	transactionRecManager.deleteTransaction(transactionId);
-	return SideshopConstants.OBJECTMAPPER.createObjectNode();
-    }
+	@Override
+	public JsonNode deleteTransaction(String transactionId) {
+		transactionRecManager.deleteTransaction(transactionId);
+		return SideshopConstants.OBJECTMAPPER.createObjectNode();
+	}
 }

@@ -14,32 +14,32 @@ import com.sideshop.project.v1.service.StockService;
 @Service
 public class StockServiceImpl implements StockService {
 
-    @Autowired
-    StockManager stockManager;
+	@Autowired
+	StockManager stockManager;
 
-    @Override
-    public List<Stock> getAllStocks() {
-	return stockManager.getAllStocks();
-    }
+	@Override
+	public List<Stock> getAllStocks() {
+		return stockManager.getAllStocks();
+	}
 
-    @Override
-    public Stock createStock(Stock stock) {
-	return stockManager.createStock(stock);
-    }
+	@Override
+	public Stock createStock(Stock stock) {
+		return stockManager.createStock(stock);
+	}
 
-    @Override
-    public Stock replaceStock(Stock stock, String stockId) {
-	return stockManager.replaceStock(stock, stockId);
-    }
+	@Override
+	public Stock replaceStock(Stock stock, String stockId) {
+		return stockManager.replaceStock(stock, stockId);
+	}
 
-    @Override
-    public Stock getStock(String stockId) {
-	return stockManager.getStock(stockId);
-    }
+	@Override
+	public Stock getStock(String stockId) {
+		return stockManager.getStock(stockId);
+	}
 
-    @Override
-    public JsonNode deleteStock(String stockId) {
-	stockManager.deleteStock(stockId);
-	return SideshopConstants.OBJECTMAPPER.createObjectNode();
-    }
+	@Override
+	public JsonNode deleteStock(String stockId) {
+		stockManager.deleteStock(stockId);
+		return SideshopConstants.OBJECTMAPPER.createObjectNode();
+	}
 }

@@ -18,39 +18,39 @@ import com.sideshop.project.v1.manager.ShopManager;
 @RequestMapping(value = "/shop")
 public class ShopController {
 
-    @Autowired
-    ShopManager shopManager;
+	@Autowired
+	ShopManager shopManager;
 
-    @RequestMapping(value = "/shops", produces = { "application/json" })
-    public List<Shop> getShops() {
-	return shopManager.getAllShops();
-    }
+	@RequestMapping(value = "/shops", produces = { "application/json" })
+	public List<Shop> getShops() {
+		return shopManager.getAllShops();
+	}
 
-    @RequestMapping(method = RequestMethod.POST, value = "/shop", produces = { "application/json" }, consumes = {
-	    "application/json" })
-    public Shop createShop(@RequestBody Shop shop) {
-	return shopManager.createShop(shop);
-    }
+	@RequestMapping(method = RequestMethod.POST, value = "/shop", produces = { "application/json" }, consumes = {
+			"application/json" })
+	public Shop createShop(@RequestBody Shop shop) {
+		return shopManager.createShop(shop);
+	}
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/shop/{shopId}", produces = {
-	    "application/json" }, consumes = { "application/json" })
-    public Shop updateShop(@RequestBody Shop shop, @PathParam("shopId") String shopId) {
-	return shopManager.replaceShop(shop, shopId);
-    }
+	@RequestMapping(method = RequestMethod.PUT, value = "/shop/{shopId}", produces = {
+			"application/json" }, consumes = { "application/json" })
+	public Shop updateShop(@RequestBody Shop shop, @PathParam("shopId") String shopId) {
+		return shopManager.replaceShop(shop, shopId);
+	}
 
-    @RequestMapping(value = "/shop/{shopId}", produces = { "application/json" })
-    public Shop getShop(@PathParam("shopId") String shopId) {
-	return shopManager.getShop(shopId);
-    }
+	@RequestMapping(value = "/shop/{shopId}", produces = { "application/json" })
+	public Shop getShop(@PathParam("shopId") String shopId) {
+		return shopManager.getShop(shopId);
+	}
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/shop/{shopId}")
-    public JsonNode deleteShop(@PathParam("shopId") String shopId) {
-	return shopManager.deleteShop(shopId);
-    }
+	@RequestMapping(method = RequestMethod.DELETE, value = "/shop/{shopId}")
+	public JsonNode deleteShop(@PathParam("shopId") String shopId) {
+		return shopManager.deleteShop(shopId);
+	}
 
-    @RequestMapping(method = RequestMethod.POST, value = "/shopException", produces = {
-	    "application/json" }, consumes = { "application/json" })
-    public Shop shopException(@RequestBody Shop shop) {
-	return shopManager.createShopException(shop);
-    }
+	@RequestMapping(method = RequestMethod.POST, value = "/shopException", produces = {
+			"application/json" }, consumes = { "application/json" })
+	public Shop shopException(@RequestBody Shop shop) {
+		return shopManager.createShopException(shop);
+	}
 }

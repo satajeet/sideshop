@@ -18,35 +18,35 @@ import com.sideshop.project.v1.manager.TransactionRecManager;
 @RequestMapping(value = "/transaction")
 public class TransactionController {
 
-    @Autowired
-    TransactionRecManager transactionRecManager;
+	@Autowired
+	TransactionRecManager transactionRecManager;
 
-    @RequestMapping(value = "/transactions", produces = { "application/json" })
-    public List<TransactionRec> getTransactions() {
-	return transactionRecManager.getAllTransactions();
-    }
+	@RequestMapping(value = "/transactions", produces = { "application/json" })
+	public List<TransactionRec> getTransactions() {
+		return transactionRecManager.getAllTransactions();
+	}
 
-    @RequestMapping(method = RequestMethod.POST, value = "/transaction", produces = { "application/json" }, consumes = {
-	    "application/json" })
-    public TransactionRec createTransaction(@RequestBody TransactionRec transactionRec) {
-	return transactionRecManager.createTransaction(transactionRec);
-    }
+	@RequestMapping(method = RequestMethod.POST, value = "/transaction", produces = { "application/json" }, consumes = {
+			"application/json" })
+	public TransactionRec createTransaction(@RequestBody TransactionRec transactionRec) {
+		return transactionRecManager.createTransaction(transactionRec);
+	}
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/transaction/{transactionReferenceId}", produces = {
-	    "application/json" }, consumes = { "application/json" })
-    public TransactionRec updateTransaction(@RequestBody TransactionRec transactionRec,
-	    @PathParam("transactionReferenceId") String transactionId) {
-	return transactionRecManager.replaceTransaction(transactionRec, transactionId);
-    }
+	@RequestMapping(method = RequestMethod.PUT, value = "/transaction/{transactionReferenceId}", produces = {
+			"application/json" }, consumes = { "application/json" })
+	public TransactionRec updateTransaction(@RequestBody TransactionRec transactionRec,
+			@PathParam("transactionReferenceId") String transactionId) {
+		return transactionRecManager.replaceTransaction(transactionRec, transactionId);
+	}
 
-    @RequestMapping(value = "/transaction/{transactionReferenceId}", produces = { "application/json" })
-    public TransactionRec getTransaction(@PathParam("transactionReferenceId") String transactionId) {
-	return transactionRecManager.getTransaction(transactionId);
-    }
+	@RequestMapping(value = "/transaction/{transactionReferenceId}", produces = { "application/json" })
+	public TransactionRec getTransaction(@PathParam("transactionReferenceId") String transactionId) {
+		return transactionRecManager.getTransaction(transactionId);
+	}
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/transaction/{transactionReferenceId}", produces = {
-	    "application/json" })
-    public JsonNode deleteTransaction(@PathParam("transactionReferenceId") String transactionId) {
-	return transactionRecManager.deleteTransaction(transactionId);
-    }
+	@RequestMapping(method = RequestMethod.DELETE, value = "/transaction/{transactionReferenceId}", produces = {
+			"application/json" })
+	public JsonNode deleteTransaction(@PathParam("transactionReferenceId") String transactionId) {
+		return transactionRecManager.deleteTransaction(transactionId);
+	}
 }

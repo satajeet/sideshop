@@ -13,12 +13,12 @@ import com.sideshop.project.v1.manager.StockManager;
 @RequestMapping(value = "/delivery")
 public class DeliveryController {
 
-    @Autowired
-    StockManager stockManager;
+	@Autowired
+	StockManager stockManager;
 
-    @RequestMapping(value = "/stocks", produces = { "application/json" }, consumes = { "application/json" })
-    public List<Stock> create() {
-	return stockManager.getAllStocks();
-    }
+	@RequestMapping(value = "/stocks", produces = { "application/json" }, consumes = { "application/json" })
+	public List<Stock> create() {
+		return stockManager.getAllStocks();
+	}
 
 }
