@@ -2,9 +2,8 @@ package com.sideshop.project.v1.api;
 
 import java.util.List;
 
-import javax.ws.rs.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +14,7 @@ import com.sideshop.project.v1.entity.UserRec;
 import com.sideshop.project.v1.manager.UserManager;
 
 @RestController
-@RequestMapping(value = "/UserController")
+@RequestMapping(value = "/user")
 public class UserController {
 
 	@Autowired
@@ -34,17 +33,17 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/user/{userId}", produces = {
 			"application/json" }, consumes = { "application/json" })
-	public UserRec updateUser(@RequestBody UserRec userRec, @PathParam("userId") String userId) {
+	public UserRec updateUser(@RequestBody UserRec userRec, @PathVariable("userId") String userId) {
 		return userManager.replaceUser(userRec, userId);
 	}
 
 	@RequestMapping(value = "/user/{userId}", produces = { "application/json" })
-	public UserRec getUser(@PathParam("userId") String userId) {
+	public UserRec getUser(@PathVariable("userId") String userId) {
 		return userManager.getUser(userId);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/user/{userId}", produces = { "application/json" })
-	public JsonNode deleteUser(@PathParam("userId") String userId) {
+	public JsonNode deleteUser(@PathVariable("userId") String userId) {
 		return userManager.deleteUser(userId);
 	}
 }

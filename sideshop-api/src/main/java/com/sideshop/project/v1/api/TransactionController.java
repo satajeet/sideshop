@@ -2,9 +2,8 @@ package com.sideshop.project.v1.api;
 
 import java.util.List;
 
-import javax.ws.rs.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,18 +34,18 @@ public class TransactionController {
 	@RequestMapping(method = RequestMethod.PUT, value = "/transaction/{transactionReferenceId}", produces = {
 			"application/json" }, consumes = { "application/json" })
 	public TransactionRec updateTransaction(@RequestBody TransactionRec transactionRec,
-			@PathParam("transactionReferenceId") String transactionId) {
+			@PathVariable("transactionReferenceId") String transactionId) {
 		return transactionRecManager.replaceTransaction(transactionRec, transactionId);
 	}
 
 	@RequestMapping(value = "/transaction/{transactionReferenceId}", produces = { "application/json" })
-	public TransactionRec getTransaction(@PathParam("transactionReferenceId") String transactionId) {
+	public TransactionRec getTransaction(@PathVariable("transactionReferenceId") String transactionId) {
 		return transactionRecManager.getTransaction(transactionId);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/transaction/{transactionReferenceId}", produces = {
 			"application/json" })
-	public JsonNode deleteTransaction(@PathParam("transactionReferenceId") String transactionId) {
+	public JsonNode deleteTransaction(@PathVariable("transactionReferenceId") String transactionId) {
 		return transactionRecManager.deleteTransaction(transactionId);
 	}
 }

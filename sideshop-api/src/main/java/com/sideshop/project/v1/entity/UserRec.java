@@ -2,8 +2,7 @@ package com.sideshop.project.v1.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Id;
-
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -13,31 +12,35 @@ public class UserRec implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -801850573233448699L;
-	@Id
-	private String userId;
+	@BsonId
+	private String _id;
 	private String userName;
+	private String loginName;
+	private String password;
+	private String passwordHint;
 	private String userRoleId;
-	private String shopId;
 
 	public UserRec() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public UserRec(String userId, String userName, String userRoleId, String shopId) {
+	public UserRec(String _id, String userName, String loginName, String password, String passwordHint,
+			String userRoleId) {
 		super();
-		this.userId = userId;
+		this._id = _id;
 		this.userName = userName;
 		this.userRoleId = userRoleId;
-		this.shopId = shopId;
+		this.loginName = loginName;
+		this.password = password;
+		this.passwordHint = passwordHint;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String get_id() {
+		return _id;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void set_id(String _id) {
+		this._id = _id;
 	}
 
 	public String getUserName() {
@@ -56,12 +59,27 @@ public class UserRec implements Serializable {
 		this.userRoleId = userRoleId;
 	}
 
-	public String getShopId() {
-		return shopId;
+	public String getLoginName() {
+		return loginName;
 	}
 
-	public void setShopId(String shopId) {
-		this.shopId = shopId;
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPasswordHint() {
+		return passwordHint;
+	}
+
+	public void setPasswordHint(String passwordHint) {
+		this.passwordHint = passwordHint;
+	}
 }

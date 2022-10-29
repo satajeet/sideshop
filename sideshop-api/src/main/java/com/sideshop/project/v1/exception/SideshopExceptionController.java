@@ -10,6 +10,11 @@ public class SideshopExceptionController {
 
 	@ExceptionHandler(value = SideshopNotfoundException.class)
 	public ResponseEntity<Object> exception(SideshopNotfoundException sideshopNotfoundException) {
-		return new ResponseEntity<>("Sideshop not found", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Sideshop not found", HttpStatus.ACCEPTED);
+	}
+
+	@ExceptionHandler(value = SideshopException.class)
+	public ResponseEntity<Object> exception(SideshopException sideshopException) {
+		return new ResponseEntity<>(sideshopException.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 }

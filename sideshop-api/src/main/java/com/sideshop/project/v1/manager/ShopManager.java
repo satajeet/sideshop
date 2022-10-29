@@ -17,6 +17,4 @@ public interface ShopManager {
 
 	public JsonNode deleteShop(String shopId);
 
-	public Shop createShopException(Shop shop);
-
 }

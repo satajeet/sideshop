@@ -2,8 +2,7 @@ package com.sideshop.project.v1.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Id;
-
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -13,10 +12,10 @@ public class Stock implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 576215622080347514L;
-	@Id
-	private String stockId;
+	@BsonId
+	private String _id;
 	private String stockName;
-	private String stockQuantity;
+	private int stockQuantity;
 	private float price;
 	private String shopId;
 
@@ -24,21 +23,21 @@ public class Stock implements Serializable {
 		super();
 	}
 
-	public Stock(String stockId, String stockName, String stockQuantity, float price, String shopId) {
+	public Stock(String _id, String stockName, int stockQuantity, float price, String shopId) {
 		super();
-		this.stockId = stockId;
+		this._id = _id;
 		this.stockName = stockName;
 		this.stockQuantity = stockQuantity;
 		this.price = price;
 		this.shopId = shopId;
 	}
 
-	public String getStockId() {
-		return stockId;
+	public String get_id() {
+		return _id;
 	}
 
-	public void setStockId(String stockId) {
-		this.stockId = stockId;
+	public void set_id(String _id) {
+		this._id = _id;
 	}
 
 	public String getStockName() {
@@ -49,11 +48,11 @@ public class Stock implements Serializable {
 		this.stockName = stockName;
 	}
 
-	public String getStockQuantity() {
+	public int getStockQuantity() {
 		return stockQuantity;
 	}
 
-	public void setStockQuantity(String stockQuantity) {
+	public void setStockQuantity(int stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
 

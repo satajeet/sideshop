@@ -2,9 +2,8 @@ package com.sideshop.project.v1.api;
 
 import java.util.List;
 
-import javax.ws.rs.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,17 +33,17 @@ public class StockController {
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/stock/{stockId}", produces = {
 			"application/json" }, consumes = { "application/json" })
-	public Stock updateStock(@RequestBody Stock stock, @PathParam("stockId") String stockId) {
+	public Stock updateStock(@RequestBody Stock stock, @PathVariable("stockId") String stockId) {
 		return stockManager.replaceStock(stock, stockId);
 	}
 
 	@RequestMapping(value = "/stock/{stockId}", produces = { "application/json" })
-	public Stock getStock(@PathParam("stockId") String stockId) {
+	public Stock getStock(@PathVariable("stockId") String stockId) {
 		return stockManager.getStock(stockId);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stock/{stockId}", produces = { "application/json" })
-	public JsonNode deleteStock(@PathParam("stockId") String stockId) {
+	public JsonNode deleteStock(@PathVariable("stockId") String stockId) {
 		return stockManager.deleteStock(stockId);
 	}
 }

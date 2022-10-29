@@ -2,8 +2,7 @@ package com.sideshop.project.v1.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Id;
-
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -13,8 +12,8 @@ public class UserRole implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -7046831310283756686L;
-	@Id
-	private String userRoleId;
+	@BsonId
+	private String _id;
 	private String userRoleName;
 	private String userRoleRights;
 
@@ -22,19 +21,19 @@ public class UserRole implements Serializable {
 		super();
 	}
 
-	public UserRole(String userRoleId, String userRoleName, String userRoleRights) {
+	public UserRole(String _id, String userRoleName, String userRoleRights) {
 		super();
-		this.userRoleId = userRoleId;
+		this._id = _id;
 		this.userRoleName = userRoleName;
 		this.userRoleRights = userRoleRights;
 	}
 
-	public String getUserRoleId() {
-		return userRoleId;
+	public String get_id() {
+		return _id;
 	}
 
-	public void setUserRoleId(String userRoleId) {
-		this.userRoleId = userRoleId;
+	public void set_id(String _id) {
+		this._id = _id;
 	}
 
 	public String getUserRoleName() {

@@ -2,8 +2,7 @@ package com.sideshop.project.v1.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Id;
-
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -13,26 +12,26 @@ public class Status implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -7051251179434509177L;
-	@Id
-	private String statusId;
+	@BsonId
+	private String _id;
 	private String statusName;
 
 	public Status() {
 		super();
 	}
 
-	public Status(String statusId, String statusName) {
+	public Status(String _id, String statusName) {
 		super();
-		this.statusId = statusId;
+		this._id = _id;
 		this.statusName = statusName;
 	}
 
-	public String getStatusId() {
-		return statusId;
+	public String get_id() {
+		return _id;
 	}
 
-	public void setStatusId(String statusId) {
-		this.statusId = statusId;
+	public void set_id(String _id) {
+		this._id = _id;
 	}
 
 	public String getStatusName() {
